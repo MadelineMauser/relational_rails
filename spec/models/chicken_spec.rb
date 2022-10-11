@@ -11,4 +11,8 @@ RSpec.describe Chicken, type: :model do
     it {should validate_presence_of :clutch_count}
     it {should validate_numericality_of :clutch_count}
   end
+
+  describe 'relationships' do
+    it {should belong_to :coop}
+  end
 end
