@@ -1,0 +1,3 @@
+class CoopsController < ApplicationController
+  
+end
