@@ -13,6 +13,6 @@ RSpec.describe Chicken, type: :model do
   end
 
   describe 'relationships' do
-    xit {should belong_to :coop}
+    it {should belong_to :coop}
   end
 end

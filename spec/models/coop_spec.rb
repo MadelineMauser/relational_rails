@@ -11,6 +11,6 @@ RSpec.describe Coop, type: :model do
   end
 
   describe 'relationships' do
-    xit {should have_many :chickens}
+    it {should have_many :chickens}
   end
 end
