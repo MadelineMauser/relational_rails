@@ -8,11 +8,13 @@ RSpec.feature "coop show page", type: :feature do
     visit "/coops/#{coop1.id}"
 
     expect(page).to have_content(coop1.name)
-    expect(page).to have_content(coop1.is_portable)
-    expect(page).to have_content(coop1.nest_box_num)
+    expect(page).to have_content("Is portable: #{coop1.is_portable}")
+    expect(page).to have_content("Nest Box Number: #{coop1.nest_box_num}")
+    expect(page).to have_content("Created at: #{coop1.created_at}")
+    expect(page).to have_content("Updated at: #{coop1.updated_at}")
 
     expect(page).not_to have_content(coop2.name)
-    expect(page).not_to have_content(coop2.is_portable)
-    expect(page).not_to have_content(coop2.nest_box_num)
+    expect(page).not_to have_content("Is portable: #{coop2.is_portable}")
+    expect(page).not_to have_content("Nest Box Number: #{coop2.nest_box_num}")
   end
 end
