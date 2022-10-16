@@ -1,0 +1,11 @@
+<h1>Chicken Index</h1>
+
+<% @chickens.each do |chicken| %>
+<div id="chicken_<%=chicken.id%>">
+  <h3><%=chicken.name%></h3>
+  <p>Is broody: <%=chicken.is_broody%></p>
+  <p>Clutch count: <%=chicken.clutch_count%></p>
+  <p>Created at: <%=chicken.created_at%></p>
+  <p>Updated at: <%=chicken.updated_at%></p>
+</div>
+<% end %>
