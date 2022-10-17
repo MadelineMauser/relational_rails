@@ -3,11 +3,11 @@
   <%=f.label :name, 'Coop name:'%>
   <%=f.text_field :name %>
   <p>Coop is portable?:</p>
-  <%=f.label :is_portable, 'Yes' %>
+  <p><%=f.label :is_portable, 'Yes' %>
   <%=f.radio_button :is_portable, 'true'%>
   <%=f.label :is_portable, 'No' %>
-  <%=f.radio_button :is_portable, 'false'%>
-  <%=f.label :nest_box_num, 'Number of nest boxes:'%>
-  <%=f.number_field :nest_box_num %>
-  <%=f.submit 'Create Coop'%>
+  <%=f.radio_button :is_portable, 'false'%></p>
+  <p><%=f.label :nest_box_num, 'Number of nest boxes:'%>
+  <%=f.number_field :nest_box_num %></p>
+  <p><%=f.submit 'Create Coop'%></p>
 <%end%>
