@@ -3,5 +3,5 @@
 <p>Nest box number: <%= @coop.nest_box_num %> </p>
 <p>Created at: <%= @coop.created_at %> </p>
 <p>Updated at: <%= @coop.updated_at %> </p>
-<p>Current number of chickens: <%= @coop.chickens.count %></p>
-<%= link_to 'Chickens in this Coop', "/coops/#{@coop.id}/chickens" %>
+<p>Current number of chickens: <%= @chicken_count %></p>
+<p><%= link_to 'Chickens in this Coop', "/coops/#{@coop.id}/chickens" %></p>

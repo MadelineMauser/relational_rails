@@ -7,4 +7,8 @@ class Coop < ApplicationRecord
   def self.creation_ordered
     self.order(created_at: :asc)
   end
+
+  def chicken_count
+    self.chickens.count
+  end
 end

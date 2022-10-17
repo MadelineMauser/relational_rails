@@ -5,5 +5,6 @@ class CoopsController < ApplicationController
 
   def show
     @coop = Coop.find(params[:id])
+    @chicken_count = @coop.chicken_count
   end
 end
