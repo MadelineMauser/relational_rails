@@ -21,4 +21,9 @@ RSpec.feature "chicken index page", type: :feature do
     expect(page).to have_content("Created at: #{chicken2.created_at}")
     expect(page).to have_content("Updated at: #{chicken2.updated_at}")
   end
+  it 'has a link to it that appears on every page' do
+    visit '/coops'
+
+    click_link("Chicken Index")
+  end
 end

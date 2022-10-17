@@ -1,6 +1,6 @@
 class CoopsController < ApplicationController
   def index
-    @coops = Coop.all.order(created_at: :asc)
+    @coops = Coop.creation_ordered
   end
 
   def show
