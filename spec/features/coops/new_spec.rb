@@ -8,12 +8,12 @@ RSpec.feature "coop new page", type: :feature do
   end
   it 'can create a new coop' do
     visit '/coops/new'
-    fill_in 'Name', with: 'New Coop'
-    choose '#is_portable_true'
-    fill_in 'Nest box number', with: '6'
+    fill_in 'Coop name:', with: 'Test Coop'
+    choose 'is_portable_true'
+    fill_in 'Number of nest boxes:', with: '6'
     click_button('Create Coop')
     
     expect(page).to have_current_path('/coops')
-    expect(page).to have_content('New Coop')
+    expect(page).to have_content('Test Coop')
   end
 end
