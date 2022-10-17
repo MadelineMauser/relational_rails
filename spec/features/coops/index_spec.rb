@@ -19,8 +19,8 @@ RSpec.feature "coop index page", type: :feature do
 
     visit '/coops'
 
-    expect("#{coop2.name}").to appear_before("#{coop3.name}", only_text: true)
-    expect("#{coop3.name}").to appear_before("#{coop1.name}", only_text: true)
+    expect("#{coop2.name}").to appear_before("#{coop3.name}")
+    expect("#{coop3.name}").to appear_before("#{coop1.name}")
   end
   it 'shows the records with their creation date next to them' do
     coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5, created_at: Time.now + 10.days)
