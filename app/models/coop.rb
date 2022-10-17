@@ -5,7 +5,7 @@ class Coop < ApplicationRecord
   has_many :chickens
 
   def self.creation_ordered
-    self.order(created_at: :asc)
+    self.order(created_at: :desc)
   end
 
   def chicken_count

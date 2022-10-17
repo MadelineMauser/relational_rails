@@ -18,11 +18,11 @@ RSpec.describe Coop, type: :model do
         coop2 = Coop.create!(name: 'Cluck Hut', is_portable: false, nest_box_num: 6, created_at: Time.now)
         coop3 = Coop.create!(name: 'Roaming Home', is_portable: true, nest_box_num: 4, created_at: Time.now + 3.days)
 
-        expect(Coop.all.creation_ordered).to eq([coop2, coop3, coop1])
+        expect(Coop.all.creation_ordered).to eq([coop1, coop3, coop2])
       end
     end
   end
-  
+
   describe 'instance methods' do
     describe '.chicken_count' do
       it 'returns the number of chickens associated with a given coop' do

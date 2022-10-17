@@ -15,6 +15,14 @@ ActiveRecord::Schema.define(version: 2022_10_11_212836) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "aquaria", force: :cascade do |t|
+    t.string "name"
+    t.boolean "has_real_plants"
+    t.float "gallons"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "chickens", force: :cascade do |t|
     t.string "name"
     t.boolean "is_broody"
@@ -33,5 +41,17 @@ ActiveRecord::Schema.define(version: 2022_10_11_212836) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "shrimps", force: :cascade do |t|
+    t.string "name"
+    t.float "length_in_cm"
+    t.boolean "is_female"
+    t.string "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.bigint "aquarium_id"
+    t.index ["aquarium_id"], name: "index_shrimps_on_aquarium_id"
+  end
+
   add_foreign_key "chickens", "coops"
+  add_foreign_key "shrimps", "aquaria"
 end
