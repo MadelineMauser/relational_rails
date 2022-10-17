@@ -28,4 +28,12 @@ RSpec.feature "coop show page", type: :feature do
 
     expect(page).to have_content("Current number of chickens: #{coop1.chickens.count}")
   end
+  it 'has a link to the index of related chickens' do
+    coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+    chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: false, clutch_count: 3)
+    
+    visit "/coops/#{coop1.id}"
+    click_link 'Chickens in this Coop'
+    expect(page).to have_current_path("/coops/#{coop1.id}/chickens")
+  end
 end
