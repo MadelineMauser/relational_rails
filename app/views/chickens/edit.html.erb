@@ -1,0 +1,12 @@
+<h1>Update Chicken</h1>
+<%= form_with url:"/chickens/#{@chicken.id}", method: :patch, local: true do |f|%>
+<%=f.label :name, 'Name:'%>
+<%=f.text_field :name, value: @chicken.name%>
+<%=f.label :is_broody_true, 'Yes'%>
+<%=f.radio_button :is_broody, 'true', checked: (@chicken.is_broody == true)%>
+<%=f.label :is_broody_false, 'No'%>
+<%=f.radio_button :is_broody, 'false', checked: (@chicken.is_broody == false)%>
+<%=f.label :clutch_count, "Clutch count:"%>
+<%=f.number_field :clutch_count, value: @chicken.clutch_count%>
+<%=f.submit 'Update Chicken'%>
+<%end%>

@@ -1,4 +1,5 @@
   <h1><%=@chicken.name%></h1>
+  <p><%= link_to 'Update Chicken', "/chickens/#{@chicken.id}/edit"%></p>
   <p>Is broody: <%=@chicken.is_broody%></p>
   <p>Clutch count: <%=@chicken.clutch_count%></p>
   <p>Created at: <%=@chicken.created_at%></p>

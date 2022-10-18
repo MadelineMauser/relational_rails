@@ -23,6 +23,5 @@ RSpec.feature "coop chicken new page", type: :feature do
     expect(page).to have_content('Twitchy')
     expect(page).to have_content('Is broody: true')
     expect(page).to have_content('Clutch count: 4')
-    save_and_open_page
   end
 end
