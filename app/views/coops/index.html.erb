@@ -1,5 +1,7 @@
 <h1> Coops Index </h1>
 <p><%= link_to 'New Coop', '/coops/new'%></p>
 <% @coops.each do |coop| %>
-<p><b><%= coop.name %></b> <%= coop.created_at %></p>
+<div id="coop_<%=coop.id%>">
+<p><%=link_to 'Edit', "/coops/#{coop.id}/edit"%> <b><%= coop.name %></b> <%= coop.created_at %></p>
+</div>
 <% end %>
