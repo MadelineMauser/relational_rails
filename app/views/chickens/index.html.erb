@@ -2,7 +2,7 @@
 
 <% @chickens.each do |chicken| %>
 <div id="chicken_<%=chicken.id%>">
-  <p><b><%=chicken.name%></b> <%=link_to 'Edit', "/chickens/#{chicken.id}/edit"%></p>
+  <p><b><%=chicken.name%></b> <%=link_to 'Edit', "/chickens/#{chicken.id}/edit"%> | <%= link_to 'Delete', "/chickens/#{chicken.id}", method: :delete %></p>
   <p>Is broody: <%=chicken.is_broody%></p>
   <p>Clutch count: <%=chicken.clutch_count%></p>
   <p>Created at: <%=chicken.created_at%></p>

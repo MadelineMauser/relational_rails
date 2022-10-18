@@ -45,7 +45,7 @@ RSpec.feature "chicken index page", type: :feature do
     click_link("Chicken Index")
     expect(page).to have_current_path('/chickens')
   end
-  it 'has a link next to each chicken to edit that coop' do
+  it 'has a link next to each chicken to edit that chicken' do
     coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
     chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: true, clutch_count: 3)
 
@@ -56,6 +56,19 @@ RSpec.feature "chicken index page", type: :feature do
     
     expect(page).to have_current_path("/chickens/#{chicken1.id}/edit")
     expect(page).to have_content('Update Chicken')
+  end
+  it 'has a link next to each chicken to delete that destroys it' do
+    coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+    chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: true, clutch_count: 3)
+
+    visit "/chickens"
+    save_and_open_page
+    within("#chicken_#{chicken1.id}") do
+      click_link 'Delete'
+    end
+
+    expect(page).to have_current_path("/chickens")
+    expect(page).not_to have_content("Martha")
   end
   # it "shows each chicken and its attributes" do
   #   coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
