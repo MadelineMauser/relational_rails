@@ -79,4 +79,16 @@ RSpec.feature "coop index page", type: :feature do
     expect(page).not_to have_content("Cozy Cottage")
     expect(Chicken.all).to eq([])
   end
+  it 'has a link next to each coop to go to that show page' do
+    coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+
+    visit "/coops"
+
+    within("#coop_#{coop1.id}") do
+      click_link 'Go to'
+    end
+
+    expect(page).to have_current_path("/coops/#{coop1.id}")
+    expect(page).to have_content("Cozy Cottage")
+  end
 end

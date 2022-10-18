@@ -2,6 +2,6 @@
 <p><%= link_to 'New Coop', '/coops/new'%></p>
 <% @coops.each do |coop| %>
 <div id="coop_<%=coop.id%>">
-<p><%=link_to 'Edit', "/coops/#{coop.id}/edit"%> | <%=link_to 'Delete', "/coops/#{coop.id}", method: :delete %> <b><%= coop.name %></b> <%= coop.created_at %></p>
+<p><%=link_to 'Edit', "/coops/#{coop.id}/edit"%> | <%=link_to 'Delete', "/coops/#{coop.id}", method: :delete %> | <%=link_to 'Go to', "/coops/#{coop.id}"%> <b><%= coop.name %></b> <%= coop.created_at %></p>
 </div>
 <% end %>
