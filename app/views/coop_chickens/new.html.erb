@@ -2,7 +2,7 @@
 <%= form_with url:"/coops/#{@coop.id}/chickens", method: :post, local: true do |f| %>
 <%=f.label :name, 'Name:'%>
 <%=f.text_field :name %>
-<p>Chicken is broody?</p>
+<p>Chicken is broody?:</p>
 <p><%=f.label :is_broody_true, 'Yes'%>
 <%=f.radio_button :is_broody, 'true'%>
 <%=f.label :is_broody_false, 'No'%>
