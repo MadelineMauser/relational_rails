@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/chickens/:id', to: 'chickens#show'
   get '/coops/:id/chickens', to: 'coop_chickens#index'
   post '/coops', to: 'coops#create'
+  get '/coops/:id/edit', to: 'coops#edit'
+  patch '/coops/:id', to: 'coops#update'
 end

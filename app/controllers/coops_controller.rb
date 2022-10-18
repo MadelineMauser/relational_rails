@@ -16,6 +16,16 @@ class CoopsController < ApplicationController
     redirect_to '/coops'
   end
 
+  def edit
+    @coop = Coop.find(params[:id])
+  end
+
+  def update
+    coop = Coop.find(params[:id])
+    coop.update(coop_params)
+    redirect_to "/coops/#{coop.id}"
+  end
+
   private
 
   def coop_params
