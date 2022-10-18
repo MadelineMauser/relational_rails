@@ -62,7 +62,7 @@ RSpec.feature "chicken index page", type: :feature do
     chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: true, clutch_count: 3)
 
     visit "/chickens"
-    save_and_open_page
+    
     within("#chicken_#{chicken1.id}") do
       click_link 'Delete'
     end
