@@ -26,6 +26,12 @@ class CoopsController < ApplicationController
     redirect_to "/coops/#{coop.id}"
   end
 
+  def destroy
+    coop = Coop.find(params[:id])
+    coop.destroy
+    redirect_to "/coops"
+  end
+
   private
 
   def coop_params

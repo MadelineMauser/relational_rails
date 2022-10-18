@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post '/coops/:parent_id/chickens', to: 'coop_chickens#create'
   get '/chickens/:id/edit', to: 'chickens#edit'
   patch '/chickens/:id', to: 'chickens#update'
+  delete '/coops/:id', to: 'coops#destroy'
 end

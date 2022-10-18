@@ -36,4 +36,16 @@ RSpec.feature "coop show page", type: :feature do
     click_link 'Chickens in this Coop'
     expect(page).to have_current_path("/coops/#{coop1.id}/chickens")
   end
+  it 'has a link to delete this coop that destroys it and its children' do
+    coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+    chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: false, clutch_count: 3)
+
+    visit "/coops/#{coop1.id}"
+
+    click_link 'Delete Coop'
+
+    expect(page).to have_current_path("/coops")
+    expect(page).not_to have_content("Cozy Cottage")
+    expect(Chicken.all).to eq([])
+  end
 end
