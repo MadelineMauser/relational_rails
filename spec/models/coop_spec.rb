@@ -37,5 +37,16 @@ RSpec.describe Coop, type: :model do
         expect(coop1.chicken_count).to eq(coop1.chickens.count)
       end
     end
+
+    describe '.chickens_alphabetically' do
+      it 'sorts its chickens in alphabetical order' do
+        coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+        chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: false, clutch_count: 3)
+        chicken2 = coop1.chickens.create!(name: 'Peeper', is_broody: true, clutch_count: 4)
+        chicken3 = coop1.chickens.create!(name: 'Gretta', is_broody: false, clutch_count: 6)
+
+        expect(coop1.chickens_alphabetically).to eq([chicken3, chicken1, chicken2])
+      end
+    end
   end
 end

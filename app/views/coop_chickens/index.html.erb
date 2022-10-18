@@ -1,5 +1,6 @@
 <h1><%=@coop.name%></h1>
 <p><%=link_to 'Create Chicken', "/coops/#{@coop.id}/chickens/new"%></p>
+<p><%=link_to 'Sort Alphabetically', alphabetical: true %></p>
 <% @chickens.each do |chicken| %>
 <div id="chicken_<%=chicken.id%>">
   <h3><%=chicken.name%></h3>

@@ -16,7 +16,7 @@ RSpec.feature "coop edit page", type: :feature do
     fill_in 'Coop name:', with: 'Changed Coop'
     fill_in 'nest_box_num', with: new_box_num
     click_button('Update Coop')
-    binding.pry
+    
     expect(page).to have_current_path("/coops/#{coop1.id}")
     expect(page).not_to have_content('Cozy Cottage')
     expect(page).to have_content('Changed Coop')

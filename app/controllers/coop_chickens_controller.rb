@@ -2,6 +2,9 @@ class CoopChickensController < ApplicationController
   def index
     @coop = Coop.find(params[:id])
     @chickens = @coop.chickens
+    if params[:alphabetical]
+      @chickens = @coop.chickens_alphabetically
+    end
   end
 
   def new

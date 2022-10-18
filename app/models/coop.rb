@@ -11,4 +11,8 @@ class Coop < ApplicationRecord
   def chicken_count
     self.chickens.count
   end
+
+  def chickens_alphabetically
+    self.chickens.order(name: :asc)
+  end
 end

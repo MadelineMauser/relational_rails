@@ -15,7 +15,5 @@ RSpec.feature "coop new page", type: :feature do
     
     expect(page).to have_current_path('/coops')
     expect(page).to have_content('Test Coop')
-    expect(page).to have_content('Is portable: true')
-    expect(page).to have_content('Nest box number: 6')
   end
 end
