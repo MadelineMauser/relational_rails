@@ -5,6 +5,9 @@ class CoopChickensController < ApplicationController
     if params[:alphabetical]
       @chickens = @coop.chickens_alphabetically
     end
+    if params[:commit] == 'Only return records with more than this number of clutch count'
+      @chickens = @chickens.chickens_above_threshold(params[:number_threshold])
+    end
   end
 
   def new

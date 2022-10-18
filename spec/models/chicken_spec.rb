@@ -25,5 +25,18 @@ RSpec.describe Chicken, type: :model do
         expect(Chicken.only_true).to eq([chicken2, chicken5])
       end
     end
+    describe '.chickens_above_threshold' do
+      it 'only returns records about the given threshold' do
+        coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+        chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: false, clutch_count: 3)
+        chicken2 = coop1.chickens.create!(name: 'Peeper', is_broody: true, clutch_count: 4)
+        chicken3 = coop1.chickens.create!(name: 'Gretta', is_broody: false, clutch_count: 6)
+        coop2 = Coop.create!(name: 'Cluck Hut', is_portable: false, nest_box_num: 6)
+        chicken5 = coop2.chickens.create!(name: 'Big Marge', is_broody: false, clutch_count: 5)
+        
+        expect(coop1.chickens.chickens_above_threshold(4)).to eq([chicken3])
+        expect(Chicken.chickens_above_threshold(4)).to eq([chicken3, chicken5])
+      end
+    end
   end
 end

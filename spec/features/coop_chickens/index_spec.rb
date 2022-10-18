@@ -35,4 +35,20 @@ RSpec.feature "coop chicken index page", type: :feature do
     expect('Gretta').to appear_before('Martha')
     expect('Martha').to appear_before('Peeper')
   end
+  it 'has a form that takes a number and shows only records that meet the threshold when submitted' do
+    coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+    chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: false, clutch_count: 3)
+    chicken2 = coop1.chickens.create!(name: 'Peeper', is_broody: true, clutch_count: 4)
+    chicken3 = coop1.chickens.create!(name: 'Gretta', is_broody: false, clutch_count: 6)
+    threshold = 4
+
+    visit "/coops/#{coop1.id}/chickens"
+
+    fill_in 'number_threshold', with: threshold
+    click_button "Only return records with more than this number of clutch count"
+
+    expect(page).to have_content('Gretta')
+    expect(page).not_to have_content('Martha')
+    expect(page).not_to have_content('Peeper')
+  end
 end

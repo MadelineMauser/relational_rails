@@ -1,6 +1,11 @@
 <h1><%=@coop.name%></h1>
 <p><%=link_to 'Create Chicken', "/coops/#{@coop.id}/chickens/new"%></p>
-<p><%=link_to 'Sort Alphabetically', alphabetical: true %></p>
+<p><%=link_to 'Sort Alphabetically', alphabetical: true %></p><br>
+<%=form_with url:"/coops/#{@coop.id}/chickens", method: :get, local: true do |f| %>
+<%=f.label :number_threshold, 'Clutch count threshold:'%>
+<%=f.number_field :number_threshold %>
+<%=f.submit 'Only return records with more than this number of clutch count'%>
+<%end%>
 <% @chickens.each do |chicken| %>
 <div id="chicken_<%=chicken.id%>">
   <h3><%=chicken.name%></h3>
