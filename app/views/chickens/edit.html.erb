@@ -7,7 +7,7 @@
 <%=f.radio_button :is_broody, 'true', checked: (@chicken.is_broody == true)%>
 <%=f.label :is_broody_false, 'No'%>
 <%=f.radio_button :is_broody, 'false', checked: (@chicken.is_broody == false)%>
-<b><%=f.label :clutch_count, "Clutch count:"%>
-<%=f.number_field :clutch_count, value: @chicken.clutch_count%></b>
-<b><%=f.submit 'Update Chicken'%></b>
+<p><%=f.label :clutch_count, "Clutch count:"%>
+<%=f.number_field :clutch_count, value: @chicken.clutch_count%></p>
+<p><%=f.submit 'Update Chicken'%></p>
 <%end%>

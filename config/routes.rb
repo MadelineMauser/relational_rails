@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: 'welcome#index'
   get '/coops', to: 'coops#index'
   get '/coops/new', to: 'coops#new'
   get '/coops/:id', to: 'coops#show'

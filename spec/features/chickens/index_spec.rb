@@ -45,7 +45,7 @@ RSpec.feature "chicken index page", type: :feature do
     click_link("Chicken Index")
     expect(page).to have_current_path('/chickens')
   end
-  it 'has a link next to each coop to edit that coop' do
+  it 'has a link next to each chicken to edit that coop' do
     coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
     chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: true, clutch_count: 3)
 
