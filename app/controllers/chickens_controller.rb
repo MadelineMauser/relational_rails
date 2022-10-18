@@ -17,6 +17,12 @@ class ChickensController < ApplicationController
     redirect_to "/chickens/#{chicken.id}"
   end
 
+  def destroy
+    chicken = Chicken.find(params[:id])
+    chicken.destroy
+    redirect_to '/chickens'
+  end
+
   private
 
   def chicken_params

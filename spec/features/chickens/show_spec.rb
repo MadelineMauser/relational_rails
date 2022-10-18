@@ -18,4 +18,15 @@ RSpec.feature "chicken show page", type: :feature do
     expect(page).not_to have_content(chicken2.name)
     expect(page).not_to have_content("Is broody: #{chicken2.is_broody}")
   end
+  it 'has a link to delete this chicken that destroys it' do
+    coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+    chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: false, clutch_count: 3)
+
+    visit "/chickens/#{chicken1.id}"
+
+    click_link 'Delete Chicken'
+
+    expect(page).to have_current_path("/chickens")
+    expect(page).not_to have_content("Martha")
+  end
 end
