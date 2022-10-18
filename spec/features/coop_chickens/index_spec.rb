@@ -22,5 +22,5 @@ RSpec.feature "coop chicken index page", type: :feature do
     expect(page).to have_content(chicken3.name)
     expect(page).to have_content("Is broody: #{chicken3.is_broody}")
   end
-
+  
 end

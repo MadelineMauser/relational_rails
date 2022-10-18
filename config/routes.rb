@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   post '/coops', to: 'coops#create'
   get '/coops/:id/edit', to: 'coops#edit'
   patch '/coops/:id', to: 'coops#update'
+  get '/coops/:parent_id/chickens/new', to: 'coop_chickens#new'
+  post '/coops/:parent_id/chickens', to: 'coop_chickens#create'
 end

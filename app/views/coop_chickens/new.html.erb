@@ -1,0 +1,13 @@
+<h1>New Chicken for <%=@coop.name%></h1>
+<%= form_with url:"/coops/#{@coop.id}/chickens", method: :post, local: true do |f| %>
+<%=f.label :name, 'Name:'%>
+<%=f.text_field :name %>
+<p>Chicken is broody?</p>
+<p><%=f.label :is_broody_true, 'Yes'%>
+<%=f.radio_button :is_broody, 'true'%>
+<%=f.label :is_broody_false, 'No'%>
+<%=f.radio_button :is_broody, 'false'%></p>
+<%=f.label :clutch_count, 'Clutch count:'%>
+<%=f.number_field :clutch_count %>
+<%=f.submit 'Create Chicken'%>
+<%end%>
