@@ -1,6 +1,6 @@
 class ChickensController < ApplicationController
   def index
-    @chickens = Chicken.all
+    @chickens = Chicken.only_true
   end
 
   def show
