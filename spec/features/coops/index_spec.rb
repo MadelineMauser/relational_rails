@@ -53,7 +53,7 @@ RSpec.feature "coop index page", type: :feature do
     click_link("Coop Index")
     expect(page).to have_current_path('/coops')
   end
-  it 'has a link next to each parent to edit that parent' do
+  it 'has a link next to each coop to edit that coop' do
     coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
     
     visit "/coops"
