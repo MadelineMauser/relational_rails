@@ -70,6 +70,19 @@ RSpec.feature "chicken index page", type: :feature do
     expect(page).to have_current_path("/chickens")
     expect(page).not_to have_content("Martha")
   end
+  it 'has a link next to each chicken to go to that show page' do
+    coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
+    chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: true, clutch_count: 3)
+
+    visit "/chickens"
+    
+    within("#chicken_#{chicken1.id}") do
+      click_link 'Go to'
+    end
+
+    expect(page).to have_current_path("/chickens/#{chicken1.id}")
+    expect(page).to have_content("Martha")
+  end
   # it "shows each chicken and its attributes" do
   #   coop1 = Coop.create!(name: 'Cozy Cottage', is_portable: true, nest_box_num: 5)
   #   chicken1 = coop1.chickens.create!(name: 'Martha', is_broody: false, clutch_count: 3)

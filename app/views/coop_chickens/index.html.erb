@@ -8,7 +8,7 @@
 <%end%>
 <% @chickens.each do |chicken| %>
 <div id="chicken_<%=chicken.id%>">
-  <h3><%=chicken.name%></h3>
+ <p><h3><%=chicken.name%></h3> <%= link_to 'Go to', "/chickens/#{chicken.id}"%></p>
   <p>Is broody: <%=chicken.is_broody%></p>
   <p>Clutch count: <%=chicken.clutch_count%></p>
   <p>Created at: <%=chicken.created_at%></p>
